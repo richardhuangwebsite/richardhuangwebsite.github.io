@@ -44,9 +44,9 @@ nav {
     position: fixed;
     left: 0;
     top: 0;
-    /* this logic keeps the nav nice and centered */
-    margin: 0 12%;
-    width: 78%;
+    /* this logic keeps the nav nice and centered, using vw over % means nav doesn't move if scroll bar appears on different pages */
+    margin: 0 12vw;
+    width: 78vw;
     height: ;
     /* so nav stays in front of whatever else is going on, like the .scene */
     z-index: 1;
@@ -70,8 +70,8 @@ nav ul {
 nav ul li {
     float: right;
     display: inline-block;
-    margin: 0 0.5vw;
-    padding: 1vh 1vw;
+    margin: 0.4vh 1.5vw;
+    padding: 0.6vh 0vw;
 }
 nav ul li:nth-child(1) {
     float: left;
@@ -82,6 +82,17 @@ nav ul li:nth-child(2) {
 nav ul li:nth-child(3) {
     float: left;
 }
+/* hover animations (could use work) */
+nav ul li {
+    border-bottom: dotted transparent;
+    border-bottom-width: 1px;
+    transition: all 0.3s ease;
+}
+nav ul li:hover {
+    border-bottom: solid white;
+    border-bottom-width: 1px;
+}
+
 nav ul li a {
     /* needs to be set for only white on homepage */
     color: white;
