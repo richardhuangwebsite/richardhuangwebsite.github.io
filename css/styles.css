@@ -44,30 +44,43 @@ nav {
     position: fixed;
     left: 0;
     top: 0;
+    /* this logic keeps the nav nice and centered */
+    margin: 0 12%;
+    width: 78%;
+    height: ;
     /* so nav stays in front of whatever else is going on, like the .scene */
     z-index: 1;
 
 }
 nav h1 {
-    margin: 2vh 3vw;
-    /* Prevents dropping a line with each space, TEMP solution, not great for mobile*/
-    width: 50vw;
+    text-align: center;
+    margin-top: 3vh;
+    width: 100%;
+    /* actually reduces the gap between lines */
+    line-height: 110%;
 }
 nav ul {
-    /* idk why I have to put this again when nav is already fixed */
-    position: fixed;
-    right: 0;
-    margin: 3vh 3vw;
-    
+    /* for some reason li are unclickable unless position specified */
+    position: relative;
+    margin-top: 2.5vh;
     font-family: Text Me One;
     font-size: 3vh;
-    
-    list-style-type: none;
+    list-style: none;
 }
 nav ul li {
-    display: inline;
+    float: right;
+    display: inline-block;
     margin: 0 0.5vw;
     padding: 1vh 1vw;
+}
+nav ul li:nth-child(1) {
+    float: left;
+}
+nav ul li:nth-child(2) {
+    float: left;
+}
+nav ul li:nth-child(3) {
+    float: left;
 }
 nav ul li a {
     /* needs to be set for only white on homepage */
@@ -80,7 +93,7 @@ nav ul li a {
 .neon {
     /* Las Enter line also blinks, and hard to read with glow */
     font-family: 'Text Me One';
-    font-size: 30px; /* default 130px */
+    font-size: 35px; /* default 130px */
     color: #FFD5FF;
     position: absolute;
     /* top: 50%;
@@ -140,8 +153,9 @@ nav ul li a {
     align-items: center;
 }
 .spaceship {
-    /* changed from relative, does this force a bottom bar? */
     position: absolute;
+    /* best method of translating spaceship */
+    transform-origin: 47% 55%;
     animation: animate-spaceship 7s ease-in-out infinite;
 }
 @keyframes animate-spaceship {
