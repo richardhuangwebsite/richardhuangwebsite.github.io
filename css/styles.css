@@ -54,7 +54,7 @@ nav {
 }
 nav h1 {
     text-align: center;
-    margin-top: 3vh;
+    margin-top: 5vh;
     width: 100%;
     /* actually reduces the gap between lines */
     line-height: 110%;
@@ -62,7 +62,7 @@ nav h1 {
 nav ul {
     /* for some reason li are unclickable unless position specified */
     position: relative;
-    margin-top: 2.5vh;
+    margin-top: 5vh;
     font-family: Text Me One;
     font-size: 3vh;
     list-style: none;
