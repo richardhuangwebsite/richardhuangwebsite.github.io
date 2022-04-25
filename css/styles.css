@@ -1,4 +1,12 @@
-/* not a fan of using *... */
+@font-face {
+    font-family: 'cheltenham';
+    src: url('cheltenham-webfont.woff2') format('woff2'),
+         url('cheltenham-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/* not a fan of using *...margin: 0 is necessary but what about the other two? */
 *{
     margin: 0;
     padding: 0;
@@ -12,6 +20,7 @@ body {
     align-items: center;
     overflow: hidden;
 } */
+/* .scene only used for main of homepage */
 .scene {
     position: relative;
     width: 100%;
@@ -23,7 +32,8 @@ body {
     align-items: center;
 }
 .scene .spaceship {
-    position: relative;
+    /* changed from relative, does this force a bottom bar? */
+    position: absolute;
     animation: animate-spaceship 7s ease-in-out infinite;
 }
 @keyframes animate-spaceship {
@@ -44,6 +54,16 @@ body {
 .scene .spaceship::before {
     content: '';
     position: absolute;
+    bottom: -95.9px;
+    left: 473.99px;
+    width: 2.3px;
+    height: 100px;
+    background: linear-gradient(#ffe5b6,transparent);
+
+}
+.scene .spaceship::after {
+    content: '';
+    position: absolute;
     bottom: -150px;
     left: 47.5%;
     transform: translateX(-50%);
@@ -52,16 +72,6 @@ body {
     background: linear-gradient(#ffe5b6,transparent);
     filter: blur(10px);
     animation: animate-booster 3s ease-in-out infinite;
-}
-.scene .spaceship::after {
-    content: '';
-    position: absolute;
-    bottom: -95.9px;
-    left: 473.99px;
-    width: 2.3px;
-    height: 100px;
-    background: linear-gradient(#ffe5b6,transparent);
-
 }
 @keyframes animate-booster {
     0%,100% {
@@ -73,7 +83,11 @@ body {
         width: 8px;
     }
 }
-
+.space {
+    position: absolute;
+    /* left/top positons changes preferable? */
+    transform: translateX(0vw) rotate(157deg);
+}
 .star {
     position: absolute;
     left 50%;
@@ -83,7 +97,7 @@ body {
     background: linear-gradient(-45deg, #5f91ff, rgba(0,0,255,0));
     border-radius: 999px;
     filter: drop-shadow(0 0 6px #699bff);
-    animation: tail 3s ease-in-out infinite, falling 3s ease-in-out infinite;
+    animation: tail 3s ease-in-out infinite, fall 3s ease-in-out infinite;
 }
 @keyframes tail {
     0% {
@@ -96,7 +110,7 @@ body {
         width: 0;
     }
 }
-@keyframes falling {
+@keyframes fall {
     0% {
         transform: translateX(0);
     }
@@ -114,9 +128,9 @@ body {
     background: linear-gradient(-45deg, rgba(0,0,255,0), #5f91ff, rgba(0,0,255,0));
     border-radius: 100%;
     transform: translateX(50%) rotateZ(45deg);
-    animation: shining 3s ease-in-out infinite;
+    animation: twinkle 3s ease-in-out infinite;
 }
-@keyframes shining {
+@keyframes twinkle {
     0% {
         width: 0px;
     }
@@ -135,7 +149,7 @@ body {
     left: calc(50% - 250px);
     animation-delay: 1s;
 }
-/* remember that the spaceship is the 6th child */
+/* remember that the spaceship is the 6th child due to the workings of this stuff */
 .star:nth-child(1)::before, .star:nth-child(1)::after {
     animation-delay: 1s;
 }
@@ -170,4 +184,13 @@ body {
 }
 .star:nth-child(5)::before, .star:nth-child(5)::after {
     animation-delay: 1.8s;
+}
+/* so as to not interfere with other h1s */
+.scene h1 {
+    position: absolute;
+    right: 5vw;
+    bottom: 5vh;
+    font-family: cheltenham;
+    font-size: 6vh;
+    color: whitesmoke;
 }
