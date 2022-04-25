@@ -20,6 +20,9 @@ body {
     align-items: center;
     overflow: hidden;
 } */
+nav {
+    
+}
 /* .scene only used for main of homepage */
 .scene {
     position: relative;
@@ -191,6 +194,7 @@ body {
     right: 5vw;
     bottom: 5vh;
     font-family: cheltenham;
+    font-style: italic;
     font-size: 6vh;
     color: whitesmoke;
 }
